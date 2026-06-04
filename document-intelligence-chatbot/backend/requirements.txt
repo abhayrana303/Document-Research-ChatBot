@@ -1,5 +1,5 @@
-FastAPI
-uvicorn
+fastapi
+uvicorn[standard]
 pydantic
 python-multipart
 pytesseract
@@ -9,5 +9,7 @@ scikit-learn
 beautifulsoup4
 nltk
 requests
-langchain
-Groq
+python-dotenv
+PyMuPDF
+chromadb
+sentence-transformers

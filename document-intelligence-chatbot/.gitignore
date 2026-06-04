@@ -1,6 +1,58 @@
+# ─── Python ───────────────────────────────────────────────────────────────────
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments (the venv is stored in backend/bot/ — ignore it)
+bot/
+venv/
+.venv/
+env/
+ENV/
+
+# ─── Environment / Secrets ────────────────────────────────────────────────────
+# NEVER commit .env — it contains your API key!
 .env
-data/chroma_db/
+*.env
+!.env.example
+
+# ─── ChromaDB vector database (runtime data, not source code) ─────────────────
+chroma_db/
+backend/chroma_db/
+
+# ─── Uploaded documents (user data, not source code) ──────────────────────────
+uploads/
+backend/uploads/
+
+# ─── Node / Frontend ──────────────────────────────────────────────────────────
 node_modules/
 build/
+dist/
+.cache/
+.parcel-cache/
+*.local
+
+# ─── IDE / Editor ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ─── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db

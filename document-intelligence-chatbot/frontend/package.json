@@ -1,5 +1,5 @@
 {
-  "name": "chatbot-project",
+  "name": "document-intelligence-chatbot",
   "version": "1.0.0",
   "description": "A web-based chatbot that ingests and processes documents, allowing users to ask questions and extract answers with accurate citations.",
   "scripts": {
@@ -12,7 +12,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "axios": "^1.6.7"
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "typescript": "^4.9.5",
@@ -25,7 +25,11 @@
     "question answering",
     "summarization"
   ],
-  "author": "Your Name",
+  "author": {
+    "name": "Abhay Rana",
+    "url": "https://github.com/abhayrana303",
+    "email": "abhay.7080kaliraman@email.com"
+  },
   "license": "MIT",
   "browserslist": {
     "production": [

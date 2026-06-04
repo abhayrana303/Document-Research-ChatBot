@@ -2,7 +2,7 @@ import pytesseract
 from PIL import Image
 import io
 import fitz  # PyMuPDF
-from vector_store import vector_store
+from utils.vector_store import vector_store  # Fixed: correct module path
 import re
 
 class DocumentIngestor:
@@ -27,16 +27,17 @@ class DocumentIngestor:
         })
         # --- Vector DB integration ---
         chunks = self.split_into_chunks(text)
-        vector_store.add_document_chunks(doc_id, chunks)
+        if chunks:
+            vector_store.add_document_chunks(doc_id, chunks)
 
     def split_into_chunks(self, text, chunk_size=300, overlap=50):
-        # Split text into chunks of chunk_size words with overlap
+        """Split text into chunks of chunk_size words with overlap."""
         words = re.split(r'(\s+)', text)
         chunks = []
         i = 0
         chunk_id = 0
         while i < len(words):
-            chunk_words = words[i:i+chunk_size]
+            chunk_words = words[i:i + chunk_size]
             chunk_text = ''.join(chunk_words).strip()
             if chunk_text:
                 chunks.append({"text": chunk_text, "chunk_id": chunk_id})
@@ -59,7 +60,3 @@ class DocumentIngestor:
         if ids:
             return [doc for doc in self.documents if doc["id"] in ids]
         return self.documents
-
-    def summarize_documents(self):
-        # Placeholder for summarization logic
-        return "Summary of documents"

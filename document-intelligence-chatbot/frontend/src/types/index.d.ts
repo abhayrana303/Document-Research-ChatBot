@@ -1,32 +1,42 @@
+// ── API Response Types — aligned with FastAPI backend ──────────────────────
+
+/** A single uploaded document as returned by GET /documents/ */
 interface Document {
-    id: string;
-    title: string;
-    content: string;
-    citations: Citation[];
+    id: string;        // e.g. "DOC001"
+    filename: string;  // e.g. "report.pdf"
 }
 
-interface Citation {
-    documentId: string;
-    page: number;
-    paragraph: number;
+/** A single answer row returned by POST /ask/ */
+interface Answer {
+    docId: string;     // The source document ID, e.g. "DOC001"
+    answer: string;    // The LLM-generated answer text
+    citation: string;  // e.g. "Page 3, Paragraph 2"
 }
 
-interface UserQuery {
-    question: string;
-    documentIds?: string[];
-}
-
-interface QAResponse {
-    answer: string;
-    citations: Citation[];
-}
-
+/** A theme identified from the answer by POST /ask/ */
 interface Theme {
-    title: string;
+    title: string;    // e.g. "Revenue Growth"
+    summary: string;  // Brief description of the theme
+}
+
+/** Full response from POST /ask/ */
+interface QAResponse {
+    answers: Answer[];
+    themes: Theme[];
+}
+
+/** Response from GET /summarize/ */
+interface SummarizeResponse {
     summary: string;
 }
 
-interface SummarizedResponse {
-    themes: Theme[];
-    citations: Citation[];
+/** Response from POST /upload/ */
+interface UploadResponse {
+    message: string;  // "Documents uploaded successfully."
+    ids: string[];    // ["DOC001", "DOC002"]
+}
+
+/** Generic error response */
+interface ErrorResponse {
+    error: string;
 }
