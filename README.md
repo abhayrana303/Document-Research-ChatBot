@@ -119,7 +119,7 @@ npm start
 ```
 Document-Research-ChatBot/               ← GitHub repo root
 ├── README.md
-├── LICENSE
+|
 └── document-intelligence-chatbot/       ← app source
     ├── .gitignore
     ├── backend/
@@ -217,6 +217,4 @@ Answer + citation + themes returned to UI
 
 ---
 
-## 📜 License
 
-MIT — see [LICENSE](LICENSE) for details.
